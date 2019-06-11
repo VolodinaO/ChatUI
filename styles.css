@@ -1,0 +1,375 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+    margin: 0;
+}
+html{
+    background-color: #f7f7f7;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+body{
+    background-size: cover;
+}
+header{
+    background-color: rgba(97, 175, 229, 1);
+    text-align: right;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+figure{
+    text-align: center;
+    width: 200px;
+    margin: auto;
+}
+figure img{
+    width: 40px;
+    float: left;
+}
+main{
+    margin-top: 75px;
+}
+footer{
+    text-align:center;
+    box-shadow:0 0 2px #337180;
+    background-color: #61afe5;
+    position: fixed;
+    bottom: 0; right: 0; left: 0
+}
+aside{
+    display: none;
+}
+.header-button{
+    border: none;
+    border-radius: 15px;
+    background-color: #f1f1f1;
+    margin: 7px 0;
+}
+.header-button:hover {
+    background-color: rgba(241, 241, 241, 0.9);
+}
+.footer-href{
+    color: #303d46;
+    min-width: 30%;
+    display:inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+/*Всё, связанное с иконками из Font Awesome*/
+.far{
+    color: #fe393e;
+    font-size: 1.5em;
+}
+.fa-bars{
+    float: right;
+    margin: 20px 20px 20px 0;
+}
+.fa-remove{
+    /*position: absolute;*/
+    font-size: 2em!important;
+    margin: 30px;
+    float: right;
+}
+.fa-chevron-left{
+    float: left;
+    margin: 20px 0 20px 20px;
+}
+.fa-chevron-right{
+    float: left;
+    margin: 20px 0 20px 20px;
+}
+.fa-paper-plane-button{
+    position: absolute;
+    right: 5%;
+    top: 30%;
+}
+.fa-plus-button {
+    position: absolute;
+    top: 55px;
+    left: 20px;
+}
+.fa-smile-o-button{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+/*Блок с диалогом*/
+.dialog{
+    margin-left: 300px;
+    margin-bottom: 173px;
+    /*border: 3px solid rgba(229, 228, 229, 1);*/
+}
+.message{
+    border: 1px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 80px 0;
+}
+.preview{
+    width: max-content;
+    background: white;
+    border: 1px solid #d4d4d4;
+}
+.preview-href{
+    color: #999999;
+    margin: 5px 10px;
+}
+.left{
+    margin-left: 20px;
+}
+.right{
+    margin-right: 20px;
+}
+.container {
+    padding: 10px;
+    word-wrap: break-word;
+}
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Изображения */
+.bar-block img{
+    max-width: 100px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+    padding: 8px 16px;
+}
+.container-img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    margin-left:0;
+    border-radius: 50%;
+}
+.container-img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+.img-preview{
+    height:183px;
+    border-radius: 0!important;
+    width: 387px;
+    margin: auto;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/*Блоки времени*/
+.time-left {
+    margin-right: 80px;
+    float: right;
+    color: #aaa;
+}
+.time-right {
+    margin-left: 80px;
+    float: left;
+    color: #999;
+}
+.time-dialogs{
+    margin-right: 5px;
+    float: right;
+    color: #aaa;
+    font-size: 0.8em;
+}
+/*Окно отправки сообщений*/
+.sender{
+    background-color: #f1f1f1;
+    height: 150px;
+    bottom: 23px;
+    left: 300px;
+    position: fixed;
+    right: 0;
+    border: 3px solid rgba(229, 228, 229, 1);
+}
+.input-message{
+    width: 80%;
+    height: 70%;
+    resize: none;
+    position: absolute;
+    left: 65px;
+    top: 15px;
+    font-size: 1.4em;
+}
+.sender button{
+    font-size: 1.9em;
+    background-color: transparent;
+    border-width: 0;
+}
+
+/*Боковая панель/меню*/
+.sidebar{
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+}
+.bar-block{
+    width: 80%;
+    text-align: left;
+    padding: 8px 16px;
+}
+.bar-item{
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    outline: none;
+    white-space: normal;
+    float: none;
+    text-decoration: none;
+    color: black;
+}
+.bar-item:hover{
+    background-color:#eee;
+}
+.overlay{
+    position: fixed;
+    display: none;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    bottom:0;
+    left:0;
+    right: 250px;
+}
+
+/*Панель с контактами и диалогами*/
+.dialogs{
+    background-color: white;
+    float: left;
+    width: 300px;
+    bottom: 23px;
+    top: 78px;
+    position: fixed;
+    left: 0;
+    text-align: left;
+    overflow-y: scroll;
+}
+.dialogs .message{
+    margin-right: 0;
+}
+.dialogs .container{
+    border-top: 2px solid rgba(97, 175, 229, 0.09);
+}
+.contact{
+    color: rgba(97, 175, 229, 1);
+    padding: 8px 16px;
+}
+
+
+/*Адаптивность под разные размеры экранов*/
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+    .fa-chevron-left{
+        display: none!important;
+    }
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .fa-chevron-left{
+        display: none!important;
+    }
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 769px) and (max-width: 991px) {
+    .input-message{
+        width: 70%;
+        height: 60%;
+    }
+    .sender{
+        height: 100px;
+    }
+    .dialog{
+        margin-bottom: 123px;
+    }
+    .fa-chevron-left{
+        display: none!important;
+    }
+    .img-preview{
+        width: 300px;
+    }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 768px) {
+    .input-message{
+        width: 70%;
+        height: 60%;
+    }
+    .fa-chevron-left{
+        display: block;
+    }
+    .dialog{
+        margin-left:0;
+        margin-bottom: 123px;
+    }
+    .dialogs{
+        display: none;
+        width: 100%;
+    }
+    .sender{
+        left:0;
+        height: 100px;
+    }
+    .text{
+        display: none;
+    }
+    .img-preview{
+        display: none;
+    }
+}
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+    .input-message {
+        width: 60%;
+        height: 60%;
+    }
+
+    .fa-chevron-left {
+        display: block;
+    }
+
+    .dialog {
+        margin-left: 0;
+        margin-bottom: 123px;
+    }
+
+    .dialogs {
+        display: none;
+        width: 100%;
+    }
+
+    .sender {
+        left: 0;
+        height: 100px;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .img-preview {
+        display: none;
+    }
+}
+
+@media (max-width: 320px) {
+    .preview-href{
+        width: 95px;
+    }
+}

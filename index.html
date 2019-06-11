@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<!--Скачивается в проект перед запуском-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>ChatUI</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="dialogsController.js"></script>
+    <script src="adaptive.js"></script>
+
+    <!--Для отображения fontAwesome по ссылкам ниже нужно подключение к интернету-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <!--Header-->
+        <div onclick="openMenu()"><i class="fa fa-bars"></i></div>
+        <div onclick="openDialogs()" id="left" ><i class="fa fa-chevron-left"></i></div>
+        <figure>
+            <img src="images/chat-icon.png">
+            <h1>SmallChat</h1>
+        </figure>
+        <div class="buttons-container">
+            <button class="header-button"><i class="fa fa-rss" aria-hidden="true"></i> RSS</button>
+            <button class="header-button"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Вход</button>
+            <button class="header-button"><i class="fa fa-id-card" aria-hidden="true"></i> Регистрация</button>
+        </div>
+    </header>
+
+    <!--Основное тело-->
+    <main ng-app="myApp"  ng-controller="dialogsCtrl">
+        <!--Блок диалога и поля для отправки сообщений-->
+        <div class="dialog" id="myDialog">
+
+            <!--Блок с диалогом-->
+            <div class="container" ng-repeat="x in messages">
+                <img class="container-img {{x.position}}" src="{{x.avatarPath}}" alt="Avatar">
+                <div class="message {{x.darker}}">{{x.textMessage}}
+                    <i class={{x.smile}}></i>
+                    <div>
+                        <a href="{{x.hrefLinks}}" target="_blank">{{x.hrefLinks}}</a>
+                    </div>
+
+                    <!--Превью ссылок/статей-->
+                    <div class="preview" style="display: {{x.isPreview}}">
+                        <img src="{{x.preview.previewImgPath}}" class="img-preview">
+                        <div class="preview-href">
+                            <a href="{{x.preview.hrefLink}}" target="_blank">
+                                {{x.preview.hrefText}}
+                            </a>
+                            <p>{{x.preview.previewText}}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--Дата, время-->
+                <span class="time-{{x.position}}">{{x.time}}</span>
+            </div>
+
+            <!--Окно отправки сообщений-->
+            <form class="sender">
+                <button class="fa-plus-button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button class="fa-smile-o-button"><i class="fa fa-smile-o" aria-hidden="true"></i></button>
+                <textarea class="input-message"></textarea>
+                <button class="fa-paper-plane-button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </form>
+        </div>
+
+        <!--Панель с диалогами/контактами-->
+        <div class="dialogs" id="myDialogs" onclick="closeDialogs()">
+            <div class="container" ng-repeat="y in dialogs">
+                <img class="container-img" src="{{y.avatarPath}}" alt="Avatar">
+                <p class="contact">{{y.contact}}</p>
+                <p class="message {{y.darker}}">{{y.textMessage}} <i class={{y.smile}}></i></p>
+                <span class="time-dialogs">{{y.time}}</span>
+            </div>
+        </div>
+
+        <!--Нижняя панель с ссылками/Footer-->
+        <footer>
+            <a href="" class="footer-href">Контакты</a>
+            <a href="" class="footer-href">Обратная связь</a>
+            <a href="" class="footer-href">Партнеры</a>
+        </footer>
+    </main>
+
+    <!--Меню/боковая панель-->
+    <aside class="sidebar" id="mySidebar">
+        <br>
+        <a href="#" onclick="closeMenu()" class="close" title="Закрыть меню">
+            <i class="fa fa-remove"></i>
+        </a>
+        <div class="bar-block">
+            <img src="images/avatar1.png" alt="Avatar" >
+            <p class="contact">Игнат Бадур</p>
+            <a href="#" onclick="closeMenu()" class="bar-item">
+                <i class="fa fa-user fa-fw"></i> Личный кабинет</a>
+            <a href="#" onclick="closeMenu()" class="bar-item">
+                <i class="fa fa-cog"></i> Настройки</a>
+            <a href="#" onclick="closeMenu()" class="bar-item">
+                <i class="fa fa-user-plus"></i> Добавить друзей</a>
+            <a href="#" onclick="closeMenu()" class="bar-item">
+                <i class="fa fa-envelope fa-fw"></i> Служба поддержки</a>
+            <a href="#" onclick="closeMenu()" class="bar-item">
+                <i class="fa fa-sign-out-alt"></i> Выйти</a>
+        </div>
+    </aside>
+    <!-- Затемнение при открытии меню-->
+    <div class="overlay" onclick="closeMenu()" style="cursor:pointer" id="myOverlay"></div>
+</body>
+</html>
